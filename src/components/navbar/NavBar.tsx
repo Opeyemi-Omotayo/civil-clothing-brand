@@ -13,14 +13,14 @@ const NavBar = () => {
   const [nav, setNav] = React.useState(false);
 
   return (
-    <nav className="mx-auto container px-5 lg:px-10 py-5 z-50">
-      <div className="justify-between items-center hidden lg:flex">
-        <div className="flex items-center  justify-between">
+    <nav className="container z-50 px-5 py-5 mx-auto ">
+      <div className="items-center justify-between hidden lg:flex">
+        <div className="flex items-center justify-between">
           <Link to="/" className="text-3xl font-bold text-secondary">
             Ci<span className="text-primary">v</span>il
           </Link>
         </div>
-        <ul className="flex items-center justify-between space-x-10 text-gray-600 cursor-pointer">
+        <ul className="flex items-center justify-between space-x-10 cursor-pointer text-normal">
           <li>
             <a href="/cart" className="flex items-center">
               <AiOutlineShoppingCart className="text-xl" />
@@ -46,7 +46,7 @@ const NavBar = () => {
       </div>
 
       {/* mobile */}
-      <div className="lg:hidden flex justify-between items-center">
+      <div className="flex items-center justify-between lg:hidden">
         <Link to="/" className="text-3xl font-bold text-secondary">
           Ci<span className="text-primary">v</span>il
         </Link>
@@ -56,7 +56,7 @@ const NavBar = () => {
             nav ? "block" : "hidden"
           }`}
         >
-          <div className="flex flex-col h-96 text-lg  items-center justify-between">
+          <div className="flex flex-col items-center justify-between text-lg h-96">
             <li>
               <a href="/#product">Products</a>
             </li>
@@ -67,19 +67,19 @@ const NavBar = () => {
               <a href="/#contact">Contact</a>
             </li>
 
-            <li className="cursor-pointer bg-black text-white p-2 w-32 flex items-center justify-center rounded-full">
+            <li className="flex items-center justify-center w-32 p-2 text-white bg-black rounded-full cursor-pointer">
               <a href="/cart" className="flex items-center">
                 <AiOutlineShoppingCart className="mr-2" /> Cart
               </a>
             </li>
-            <li className="cursor-pointer bg-white text-black p-2 w-32 flex items-center justify-center rounded-full">
+            <li className="flex items-center justify-center w-32 p-2 text-black bg-white rounded-full cursor-pointer">
               <a href="/#delivery" className="flex items-center">
                 <MdOutlineDeliveryDining className="mr-2" /> Delivery
               </a>
             </li>
           </div>
         </ul>
-        <div className="lg:hidden block text-3xl" onClick={() => setNav(!nav)}>
+        <div className="block text-3xl lg:hidden" onClick={() => setNav(!nav)}>
           {!nav ? <CiMenuBurger /> : <TfiClose />}
         </div>
       </div>
