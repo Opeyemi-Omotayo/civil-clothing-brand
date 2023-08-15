@@ -3,7 +3,7 @@ import ProductCard from "../../micro/card/ProductCard";
 
 export type ProductItem = {
     title: string;
-    category: string;
+    collection: string;
     quantity: number;
     price: string;
     image: string;
@@ -12,42 +12,42 @@ export type ProductItem = {
   
   const products: ProductItem[] = [
     {
-      title: "Amazon Echo (3rd generation)",
-      category: "appliances",
+      title: "City girl summer",
+      collection: "city girl collection",
       quantity: 1,
-      price: "52",
-      image: "https://media.very.co.uk/i/very/P6LTG_SQ1_0000000071_CHARCOAL_SLf?$300x400_retinamobilex2$",
+      price: "152",
+      image: "https://img.freepik.com/free-photo/smiling-attractive-young-woman-flowered-dress_23-2148135608.jpg?w=360&t=st=1692134753~exp=1692135353~hmac=04e926a1f4b3f837a21771fbd7ca0a3494f5603e9433d28b746c34e49c0f8443",
       id: 1,
     },
     {
-      title: "IFB 30 L Convection Microwave Oven",
-      category: "appliances",
+      title: "City girl summer",
+      collection: "city girl collection",
       quantity: 1,
-      price: "239",
-      image: "https://images-na.ssl-images-amazon.com/images/I/81D8pNFmWzL._SL1500_.jpg",
+      price: "139",
+      image: "https://img.freepik.com/premium-photo/young-pretty-sexy-woman-girl-with-cute-face-long-brunette-hair-has-fashionable-makeup-black-dress-pink-background_136403-2328.jpg?w=360",
       id: 2,
     },
     {
-      title: "Samsung 49' Curved LED Gaming Monitor ",
-      category: "appliances",
+      title: "City girl summer ",
+      collection: "city girl collection",
       quantity: 1,
-      price: "1095",
-      image: "https://images-na.ssl-images-amazon.com/images/I/6125mFrzr6L._AC_SX355_.jpg",
+      price: "195",
+      image: "https://img.freepik.com/premium-photo/woman-blue-satin-maxi-dress-with-high-apron-neckline_849906-17979.jpg?w=740",
       id: 3,
     },
     {
-      title: "Mama'S Pride Parboiled Rice 10kg",
-      category: "grocery",
+      title: "City girl summer",
+      collection: "city girl collection",
       quantity: 1,
-      price: "13",
-      image: "https://ng.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/52/934348/1.jpg?4747",
+      price: "130",
+      image: "https://img.freepik.com/free-photo/stylish-tanned-girl-black-dress-red-neckerchief-posing-near-iron-lamppost_197531-3245.jpg?w=360&t=st=1692134944~exp=1692135544~hmac=137b869bc61333a06002cb908016bb23059d16151983256c062c8e27038cafa9",
       id: 4,
     }  
   ];
 
 const Products = () => {
   return (
-    <main  id="products" className="container w-full px-5 mx-auto lg:px-10">
+    <main  id="products" className="container w-full px-5 mx-auto my-10 lg:px-10">
       <nav className="flex justify-between py-4 font-medium text-text">
         <h3>Products </h3>
         <p className="text-gray-500">View All</p>
