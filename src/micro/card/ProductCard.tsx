@@ -59,7 +59,7 @@ const ProductCard = ({ product }: { product: ProductItem[] }) => {
                   </span>
                   day
                 </p>
-                <Link to={`/details/${product.id}`}>
+                <Link to={`/productDetails`}>
                   <Button className="w-20 ml-10 text-sm font-medium text-white bg-primary lg:ml-5 xl:ml-10">
                     Rent Now
                   </Button>
@@ -67,7 +67,7 @@ const ProductCard = ({ product }: { product: ProductItem[] }) => {
               </div>
             </div>
           </div>
-    ))};
+    ))}
     </>
   );
 };
