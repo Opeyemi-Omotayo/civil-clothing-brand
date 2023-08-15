@@ -12,56 +12,26 @@ const ProductCard = ({ product }: { product: ProductItem[] }) => {
     <>
     {product.map((product: ProductItem) => (
           <div
-            className="p-4 bg-white rounded-lg"
+            className="p-4 bg-white rounded-lg shadow"
             key={product.id}
             data-aos="fade-in"
           >
             <div>
-              <div>
-                <hgroup>
-                  <h3 className="text-base font-bold">{product.title}</h3>
-                  <h4 className="text-lg font-medium lg:text-base text-text">
-                    {product.category}
-                  </h4>
-                </hgroup>
-              </div>
               <img
                 src={product.image}
                 alt="product"
                 className="my-12 w-[270px] h-[108px]"
               />
+              <div>
+                  <h3 className="text-base font-medium">{product.title}</h3>
+              </div>
             </div>
             <div>
-              <ul className="flex justify-between text-sm text-text">
-                <li className="flex items-center">
-                  <span className="pr-2 text-base">
-                    <BsFuelPumpDieselFill />
-                  </span>
-                  {product.quantity}L
-                </li>
-                <li className="flex items-center">
-                  <span className="pr-2 text-base">
-                    <GiSteeringWheel />
-                  </span>
-                  Manual
-                </li>
-                <li className="flex items-center">
-                  <span className="pr-2 text-base">
-                    <BsFillPeopleFill />
-                  </span>
-                  {product.id}
-                </li>
-              </ul>
               <div className="flex justify-between pt-5">
-                <p className="text-base font-medium text-text">
-                  <span className="text-base font-bold text-black">
-                    ${product.price}.00/
-                  </span>
-                  day
-                </p>
+                <p className="text-base font-medium text-text"> ${product.price}.00 </p>
                 <Link to={`/productDetails`}>
-                  <Button className="w-20 ml-10 text-sm font-medium text-white bg-primary lg:ml-5 xl:ml-10">
-                    Rent Now
+                  <Button className="w-20 p-1 ml-10 text-sm font-medium text-primary border-primary hover:bg-primary hover:text-white lg:ml-5 xl:ml-10">
+                    View More
                   </Button>
                 </Link>
               </div>
