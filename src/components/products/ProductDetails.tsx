@@ -4,6 +4,7 @@ import { ProductItem } from '../../App';
 import { RiStarSFill } from "react-icons/ri";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { useParams } from 'react-router-dom';
+import FunkyBanner from '../banner/FunkyBanner';
 
 
 const ProductDetails = ({ product }: { product: ProductItem[] }) => {
@@ -31,7 +32,7 @@ const ProductDetails = ({ product }: { product: ProductItem[] }) => {
   return (
     <div>
        
-<div className="bg-white px-[45px] py-10 mx-auto  " >
+<div className="bg-white px-[25px] lg:px-[45px] py-10 mx-auto  " >
   <div className="pt-6">
     <nav aria-label="Breadcrumb">
       <ol className="flex items-center ">
@@ -242,7 +243,7 @@ const ProductDetails = ({ product }: { product: ProductItem[] }) => {
       </div>
     </div>
   </div>
-  <hr className="my-6" />
+  <FunkyBanner />
 </div>
 
     </div>

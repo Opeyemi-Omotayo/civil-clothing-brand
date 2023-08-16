@@ -6,15 +6,16 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { AiOutlineUser } from "react-icons/ai";
 import Store from "../../store/Store";
 import Collections from "../../micro/collections/Collections";
+import Accounts from "../../micro/accounts/Accounts";
 
-const Header = () => {
+const NavBar = () => {
   const [nav, setNav] = useState(false);
   const { cartArray } = Store();
 
   return (
     <>
       <nav className="font-Lato">
-        <div className="lg:flex hidden bg-black  py-4 px-[45px] text-white items-center">
+        <div className="lg:flex hidden bg-my-image bg-cover  py-4 px-[25px] lg:px-[45px] text-white items-center">
           <Link to='/' className="flex items-center">
             <h1 className="text-2xl">Ci<span className='text-primary'>v</span>il</h1>
           </Link>
@@ -32,9 +33,7 @@ const Header = () => {
               <a href="/help">Help</a>
             </div>
             <div className="flex items-center mx-2">
-              <a href="/accounts" className="flex items-center">
-                <AiOutlineUser className="text-white" />
-              </a>
+                <Accounts />
             </div>
             <div className="flex items-center ml-2">
               <a href="/cart" className="flex items-center">
@@ -50,7 +49,7 @@ const Header = () => {
         </div>
 
         {/* mobile */}
-        <div className="lg:hidden flex justify-between items-center p-4 bg-black">
+        <div className="lg:hidden flex justify-between items-center p-4 bg-my-image ">
           <Link to="/" className="flex items-center text-xl font-bold ">
           <h1 className="text-2xl">Ci<span className='text-primary'>v</span>il</h1>
           </Link>
@@ -91,4 +90,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default NavBar;

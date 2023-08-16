@@ -1,5 +1,4 @@
 import Store from "../../store/Store";
-import { RiDeleteBinLine } from "react-icons/ri";
 import { BiArrowBack } from "react-icons/bi";
 import React from "react";
 import FunkyBanner from "../banner/FunkyBanner";
@@ -48,7 +47,7 @@ const Cart = () => {
   }, [cartArray]);
 
   return (
-    <main className=" px-[45px] pt-12 lg:pt-20 font-Lato">
+    <main className="px-[25px] lg:px-[45px] pt-12 lg:pt-20 font-Lato">
       {cartArray.length === 0 ? (
         <div className="flex flex-col items-center justify-center space-y-5 text-center mb-[8rem]">
           <h1 className="text-4xl font-bold lg:text-6xl sm:text-5xl ">
@@ -78,17 +77,17 @@ const Cart = () => {
 
           <section className="flex flex-col justify-between py-10 lg:flex-row">
             <div className="w-full lg:w-8/12">
-                <ul role="list" className="-my-6 divide-y divide-gray-200">
+                <ul className="-my-6 divide-y divide-gray-200">
                   {cart.map((item) => (
                     <li className="flex py-6 border-b" key={item.id}>
                       <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-                        <img src={item.image} alt="product image" className="h-full w-full object-cover object-center"/>
+                        <img src={item.image} alt="product" className="h-full w-full object-cover object-center"/>
                       </div>
                     <div className="ml-4 flex flex-1 flex-col" >
                         <div>
                           <div className="flex justify-between text-base font-medium text-gray-900">
                             <h3>
-                              <a href="#">{item.title}</a>
+                              <a href="/#">{item.title}</a>
                             </h3>
                             <p className="ml-4">${item.price * item.quantity}.00</p>
                           </div>
@@ -121,7 +120,7 @@ const Cart = () => {
                   </ul>
             </div>
 
-            <div className="p-5  ml-10 border rounded-md lg:w-4/12 h-fit bg-gray-50">
+            <div className="p-5 lg:mt-0 mt-8  ml-0 lg:ml-10 border rounded-md lg:w-4/12 h-fit bg-gray-50">
               <div className="pb-3">
                  <h1 className="text-lg font-semibold">Order Summary</h1>
               </div>
