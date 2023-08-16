@@ -70,7 +70,7 @@ const SignIn = () => {
           />
           <div className="flex items-center justify-between">
             <button
-              className="text-white bg-primary px-10 py-4 rounded-md shadow disabled:cursor-not-allowed"
+              className="text-white bg-primary px-4 py-2 lg:px-10 lg:py-4 rounded-md shadow disabled:cursor-not-allowed"
               disabled={!formState.isValid}
             >
               SIGNIN
