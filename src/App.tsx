@@ -8,6 +8,7 @@ import NavBar from './components/navbar/NavBar';
 import Footer from './components/footer/Footer';
 import ProductDetails from './components/products/ProductDetails';
 import Cart from './components/cart/Cart';
+import SignIn from './components/accounts/SignIn';
 
 export type ProductItem = {
   title: string;
@@ -68,6 +69,7 @@ function App() {
                <Route path='/' element={<Home products={items}/>}></Route>
                <Route path='/product-details/:id' element={<ProductDetails  product={items}/>}></Route>
                <Route path='/cart' element={<Cart />}></Route>
+               <Route path='/accounts/login' element={<SignIn />}></Route>
             </Routes>
            <Footer />
       </Router>

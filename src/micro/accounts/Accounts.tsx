@@ -3,8 +3,8 @@ import { Popover, Transition } from '@headlessui/react'
 import { AiOutlineUser } from "react-icons/ai";
 
 const solutions = [
-  {name: 'Sign in', id:1, href: '/accounts/sign-in' },
-  {name:'Sign up', id:2, href: '/accounts/sign-up'  },
+  {name: 'Sign in', id:1, href: '/accounts/login' },
+  {name:'Sign up', id:2, href: '/accounts/register'  },
 ]
 
 const Accounts = () => {
