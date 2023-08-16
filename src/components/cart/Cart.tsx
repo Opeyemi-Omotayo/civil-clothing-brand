@@ -2,6 +2,7 @@ import Store from "../../store/Store";
 import { BiArrowBack } from "react-icons/bi";
 import React from "react";
 import FunkyBanner from "../banner/FunkyBanner";
+import { toast } from "react-toastify";
 
 
 const Cart = () => {
@@ -166,7 +167,7 @@ const Cart = () => {
               <button
                 className="w-full p-3 text-white bg-primary rounded-md"
                 onClick={() => {
-                  alert('success');
+                  toast('coming soon');
                 }}
               >
                 Checkout

@@ -2,9 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import Input from "../../micro/input/Input";
-import { VALIDATOR_EMAIL, VALIDATOR_MINLENGTH } from "../../validation/Validator";
+import {
+  VALIDATOR_EMAIL,
+  VALIDATOR_MINLENGTH,
+} from "../../validation/Validator";
 import { useForm } from "../../hooks/form-hook";
-
+import { toast } from "react-toastify";
 
 const SignIn = () => {
   const [formState, inputHandler, setFormData] = useForm(
@@ -36,15 +39,15 @@ const SignIn = () => {
 
   const submitHandler = async (event: any) => {
     event.preventDefault();
-    
+    toast('Logged in!');
   };
 
   return (
     <React.Fragment>
       <div className="flex items-center justify-center mt-10 font-Lato mb-[7rem]">
-        <form action="" className=" w-2/6" onSubmit={submitHandler}>
+        <form action="" className=" w-4/6  md:w-3/6 lg:w-2/6 " onSubmit={submitHandler}>
           <div className="flex items-center justify-center my-6">
-            <h1 className="text-3xl font-bold ">LOGIN</h1>
+            <h1 className=" text-2xl lg:text-3xl font-bold ">LOGIN</h1>
           </div>
           <Input
             id="email"
@@ -66,19 +69,23 @@ const SignIn = () => {
             onInput={inputHandler}
           />
           <div className="flex items-center justify-between">
-          <button className="text-white bg-primary px-10 py-4 rounded-md shadow disabled:cursor-not-allowed" disabled={!formState.isValid}>SIGNIN</button>
-          <h1 className="text-sm">
-            <span>New Customer? </span> <Link
-            onClick={switchModeHandler}
-            to="/accounts/register"
-            className="text-primary"
-          >
-              Create an account
-          </Link>
-          </h1>
+            <button
+              className="text-white bg-primary px-10 py-4 rounded-md shadow disabled:cursor-not-allowed"
+              disabled={!formState.isValid}
+            >
+              SIGNIN
+            </button>
+            <h1 className=" text-xs md:text-sm ">
+              <span>New Customer? </span>{" "}
+              <Link
+                onClick={switchModeHandler}
+                to="/accounts/register"
+                className="hover:text-primary "
+              >
+                Create an account
+              </Link>
+            </h1>
           </div>
-          
-          
         </form>
       </div>
     </React.Fragment>

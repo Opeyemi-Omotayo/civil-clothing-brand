@@ -16,7 +16,7 @@ const callsToAction = [
 const Collections = () => {
   return (
     <Popover className="relative">
-      <Popover.Button className="inline-flex items-center gap-x-1 outline-none  font-semibold leading-6 text-white ">
+      <Popover.Button className="inline-flex items-center gap-x-1 outline-none  font-semibold leading-6 lg:text-white text-black">
         <span className='capitalize'>Collections</span>
         <ChevronDownIcon className="h-5 w-5" aria-hidden="true" />
       </Popover.Button>
@@ -30,12 +30,12 @@ const Collections = () => {
         leaveFrom="opacity-100 translate-y-0"
         leaveTo="opacity-0 translate-y-1"
       >
-        <Popover.Panel className="absolute left-1/2 z-10 mt-8 flex w-[800px]  -translate-x-1/2 px-4">
+        <Popover.Panel className="absolute left-1/2 z-10 mt-8 flex w-[300px] md:w-[500px] lg:w-[800px]  -translate-x-1/2 px-4">
           <div className="w-screen  flex-auto overflow-hidden rounded-3xl bg-white text-sm leading-6 shadow-lg ring-1 ring-gray-900/5">
-            <div className="p-4 flex items-center justify-around">
+            <div className="p-4 grid grid-cols-2 gap-4 lg:flex lg:items-center lg:justify-around ">
               {solutions.map((item) => (
                 <div key={item.id} >
-                    <img src={item.image} alt='collection'  className='w-[170px] h-[250px] rounded-md'/>
+                    <img src={item.image} alt='collection'  className='w-[170px] h-[180px] lg:h-[250px] rounded-md'/>
                 </div>
               ))}
             </div>

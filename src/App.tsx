@@ -9,6 +9,10 @@ import Footer from './components/footer/Footer';
 import ProductDetails from './components/products/ProductDetails';
 import Cart from './components/cart/Cart';
 import SignIn from './components/accounts/SignIn';
+import SignUp from './components/accounts/SignUp';
+import { ToastContainer, Slide } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 export type ProductItem = {
   title: string;
@@ -62,7 +66,7 @@ function App() {
  
 
   return (
-    <div >
+    <div className='overflow-hidden'>
       <Router>
         <NavBar />
             <Routes>
@@ -70,9 +74,23 @@ function App() {
                <Route path='/product-details/:id' element={<ProductDetails  product={items}/>}></Route>
                <Route path='/cart' element={<Cart />}></Route>
                <Route path='/accounts/login' element={<SignIn />}></Route>
+               <Route path='/accounts/register' element={<SignUp />}></Route>
             </Routes>
            <Footer />
       </Router>
+
+      <ToastContainer
+        position="top-right"
+        autoClose={4000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        transition={Slide}
+      />
     </div>
   );
 }
