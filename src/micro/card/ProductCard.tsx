@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../button/Button";
 import { Link } from "react-router-dom";
-import { ProductItem } from "../../components/products/Products";
+import { ProductItem } from "../../App";
 
 
 const ProductCard = ({ product }: { product: ProductItem[] }) => {
@@ -28,7 +28,7 @@ const ProductCard = ({ product }: { product: ProductItem[] }) => {
             <div>
               <div className="flex justify-between pt-5">
                 <p className="text-base font-medium text-text"> ${product.price}.00 </p>
-                <Link to={`/productDetails`}>
+                <Link to={`/productDetails/${product.id}`}>
                   <Button className="w-20 p-1 ml-10 text-sm font-medium text-primary border-primary hover:bg-primary hover:text-white lg:ml-5 xl:ml-10">
                     View More
                   </Button>

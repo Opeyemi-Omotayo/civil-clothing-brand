@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import React from "react";
+import Store from "../../store/Store";
 import { CiMenuBurger } from "react-icons/ci";
 import { TfiClose } from "react-icons/tfi";
 import {
@@ -11,6 +12,7 @@ import { MdOutlineDeliveryDining } from "react-icons/md";
 
 const NavBar = () => {
   const [nav, setNav] = React.useState(false);
+  const { cartArray } = Store();
 
   return (
     <nav className="container z-50 px-5 py-5 mx-auto ">
@@ -24,7 +26,9 @@ const NavBar = () => {
           <li>
             <a href="/cart" className="flex items-center">
               <AiOutlineShoppingCart className="text-xl" />
-              Cart
+              <span className="relative flex items-center justify-center w-4 h-4 text-xs text-white rounded-full right-2 bg-stone-700 bottom-2">
+                  {cartArray.length}
+                </span>
             </a>
           </li>
           <li>
@@ -69,8 +73,11 @@ const NavBar = () => {
 
             <li className="flex items-center justify-center w-32 p-2 text-white bg-black rounded-full cursor-pointer">
               <a href="/cart" className="flex items-center">
-                <AiOutlineShoppingCart className="mr-2" /> Cart
+                <AiOutlineShoppingCart className="mr-2" /> 
               </a>
+              <span className="relative flex items-center justify-center w-4 h-4 text-xs text-white rounded-full right-2 bg-stone-700 bottom-2">
+                  {cartArray.length}
+                </span>
             </li>
             <li className="flex items-center justify-center w-32 p-2 text-black bg-white rounded-full cursor-pointer">
               <a href="/#delivery" className="flex items-center">

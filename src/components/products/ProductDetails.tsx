@@ -1,11 +1,33 @@
 import React from 'react';
+import Store from '../../store/Store';
+import { ProductItem } from '../../App';
 import { RiStarSFill } from "react-icons/ri";
-import banner from '../../assets/banner.jpeg';
-import img1 from '../../assets/firstPicture.jpeg';
-import img2 from '../../assets/secondPicture.jpeg';
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import { useParams } from 'react-router-dom';
 
 
-const ProductDetails = () => {
+const ProductDetails = ({ product }: { product: ProductItem[] }) => {
+  const { id }= useParams();
+  const {cartArray, addToCart, removeFromCart} = Store();
+  const handleAddToCart = (cart: ProductItem) => {
+      const itemExist = cartArray.find((item) => item.id === cart.id);
+      if (!itemExist) {
+        addToCart(cart);
+      }
+    };
+
+    if (id === undefined) {
+      return <div>Product ID not found.</div>;
+    }
+  
+    const productId = parseInt(id);
+
+    const products = product.find((product) => product.id === productId);
+
+
+    if (!products) {
+      return <div>Product not found.</div>;
+    }
   return (
     <div>
        
@@ -23,7 +45,7 @@ const ProductDetails = () => {
         </li>
         <li>
           <div className="flex items-center">
-            <a href="#" className="mr-2 text-sm font-medium text-gray-900">Products</a>
+            <a href="/" className="mr-2 text-sm font-medium text-gray-900">Products</a>
             <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor" aria-hidden="true" className="w-4 h-5 text-gray-300">
               <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
             </svg>
@@ -31,36 +53,36 @@ const ProductDetails = () => {
         </li>
 
         <li className="text-sm">
-          <a href="#" aria-current="page" className="font-medium text-gray-500 hover:text-gray-600">Gown</a>
+          <a href="/" aria-current="page" className="font-medium text-gray-500 hover:text-gray-600">{products.title} {id}</a>
         </li>
       </ol>
     </nav>
 
     <div className="max-w-2xl mx-auto mt-6 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
       <div className="hidden overflow-hidden rounded-lg aspect-h-4 aspect-w-3 lg:block">
-        <img src={banner} alt="Model wearing BLACK GOWN." className="object-cover object-center w-full h-full"/>
+        <img src={products.image} alt="Model wearing BLACK GOWN." className="object-cover object-center w-full h-full"/>
       </div>
       <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
         <div className="overflow-hidden rounded-lg aspect-h-2 aspect-w-3">
-          <img src={img1} alt="Model wearing BLACK GOWN." className="object-cover object-center w-full h-full"/>
+          <img src={products.image} alt="Model wearing BLACK GOWN." className="object-cover object-center w-full h-full"/>
         </div>
         <div className="overflow-hidden rounded-lg aspect-h-2 aspect-w-3">
-          <img src={img2} alt="Model wearing BLACK GOWN." className="object-cover object-center w-full h-full"/>
+          <img src={products.image} alt="Model wearing BLACK GOWN." className="object-cover object-center w-full h-full"/>
         </div>
       </div>
       <div className="aspect-h-5 aspect-w-4 lg:aspect-h-4 lg:aspect-w-3 sm:overflow-hidden sm:rounded-lg">
-        <img src={banner} alt="Model wearing BLACK GOWN." className="object-cover object-center w-full h-full"/>
+        <img src={products.image} alt="Model wearing BLACK GOWN." className="object-cover object-center w-full h-full"/>
       </div>
     </div>
 
     <div className="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16">
       <div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
-        <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">Black Gown</h1>
+        <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">{products.title}</h1>
       </div>
 
       <div className="mt-4 lg:row-span-3 lg:mt-0">
         <h2 className="sr-only">Product information</h2>
-        <p className="text-3xl tracking-tight text-gray-900">$100</p>
+        <p className="text-3xl tracking-tight text-gray-900">${products.price}</p>
 
         <div className="mt-6">
           <h3 className="sr-only">Reviews</h3>
@@ -73,7 +95,7 @@ const ProductDetails = () => {
               <RiStarSFill className="text-black" />
             </div>
             <p className="sr-only">4 out of 5 stars</p>
-            <a href="#" className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">117 reviews</a>
+            <a href="/" className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">117 reviews</a>
           </div>
         </div>
 
@@ -109,7 +131,7 @@ const ProductDetails = () => {
           <div className="mt-10">
             <div className="flex items-center justify-between">
               <h3 className="text-sm font-medium text-gray-900">Size</h3>
-              <a href="#" className="text-sm font-medium text-indigo-600 hover:text-indigo-500">Size guide</a>
+              <a href="/" className="text-sm font-medium text-indigo-600 hover:text-indigo-500">Size guide</a>
             </div>
 
             <fieldset className="mt-4">
@@ -169,6 +191,22 @@ const ProductDetails = () => {
               </div>
             </fieldset>
           </div>
+
+          {!cartArray.find((item) => item.id === products.id) ? (
+                <button
+                  onClick={() => handleAddToCart(products)}
+                  className="flex items-center justify-center p-2 my-5 rounded-md"
+                >
+                  <AiOutlineShoppingCart className="mr-2" /> Add
+                </button>
+              ) : (
+                <button
+                  onClick={() => removeFromCart(products.id)}
+                  className="flex items-center justify-center p-2 my-5 rounded-md"
+                >
+                  <AiOutlineShoppingCart className="mr-2" /> Remove
+                </button>
+              )}
 
           <button type="submit" className="flex items-center justify-center w-full px-8 py-3 mt-10 text-base font-medium text-white border border-transparent rounded-md bg-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">Add to Cart</button>
         </form>
