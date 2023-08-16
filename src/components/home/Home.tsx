@@ -1,15 +1,15 @@
 import React from 'react';
 import Products from '../products/Products';
-import Footer from '../footer/Footer';
 import Banner from '../banner/Banner';
 import { ProductItem } from '../../App';
+import Header from '../navbar/NavBar';
 
 const Home = ( { products }: { products: ProductItem[] }) => {
   return (
     <div>
+      <Header />
         <Products product= {products}/>
         <Banner />
-        <Footer />
     </div>
   )
 }

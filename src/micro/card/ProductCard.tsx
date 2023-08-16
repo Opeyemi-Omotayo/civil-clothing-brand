@@ -18,7 +18,7 @@ const ProductCard = ({ product }: { product: ProductItem[] }) => {
               <img
                 src={product.image}
                 alt="product"
-                className=" w-full h-[250px] rounded-lg"
+                className=" w-full h-[280px] rounded-lg"
               />
             </div>
             <div className="p-4">

@@ -3,8 +3,9 @@ import AOS from 'aos';
 import "aos/dist/aos.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import Header from './components/header/Header';
 import Home from './components/home/Home';
+import NavBar from './components/navbar/NavBar';
+import Footer from './components/footer/Footer';
 import ProductDetails from './components/products/ProductDetails';
 import Cart from './components/cart/Cart';
 
@@ -62,12 +63,13 @@ function App() {
   return (
     <div >
       <Router>
-         <Header />
+        <NavBar />
             <Routes>
                <Route path='/' element={<Home products={items}/>}></Route>
                <Route path='/productDetails/:id' element={<ProductDetails  product={items}/>}></Route>
                <Route path='/cart' element={<Cart />}></Route>
             </Routes>
+           <Footer />
       </Router>
     </div>
   );

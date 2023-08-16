@@ -2,7 +2,9 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer id="footer" className="container px-5 py-10 pb-4 mx-auto  lg:px-10">
+    <>
+   
+    <footer id="footer" className=" py-10 pb-4 mx-auto  px-[45px] ">
       <div className="flex flex-col justify-between lg:flex-row ">
         <section className="lg:max-w-[250px] max-w-[280px] space-y-2">
           <h2 className="text-2xl font-bold text-primary">CIVIL</h2>
@@ -51,6 +53,7 @@ const Footer = () => {
         </div>
       </section>
     </footer>
+    </>
   );
 };
 

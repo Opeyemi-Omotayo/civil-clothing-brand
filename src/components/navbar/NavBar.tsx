@@ -1,97 +1,94 @@
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import React from "react";
-import Store from "../../store/Store";
 import { CiMenuBurger } from "react-icons/ci";
 import { TfiClose } from "react-icons/tfi";
-import {
-  AiOutlineShoppingCart,
-  AiOutlineHeart,
-  AiOutlineMail,
-} from "react-icons/ai";
-import { MdOutlineDeliveryDining } from "react-icons/md";
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import { AiOutlineUser } from "react-icons/ai";
+import Store from "../../store/Store";
+import Collections from "../../micro/collections/Collections";
 
-const NavBar = () => {
-  const [nav, setNav] = React.useState(false);
+const Header = () => {
+  const [nav, setNav] = useState(false);
   const { cartArray } = Store();
 
   return (
-    <nav className="container z-50 px-5 py-5 mx-auto ">
-      <div className="items-center justify-between hidden lg:flex">
-        <div className="flex items-center justify-between">
-          <Link to="/" className="text-3xl font-bold text-secondary">
-            Ci<span className="text-primary">v</span>il
+    <>
+      <nav className="font-Lato">
+        <div className="lg:flex hidden bg-black  py-4 px-[45px] text-white items-center">
+          <Link to='/' className="flex items-center">
+            <h1 className="text-2xl">Ci<span className='text-primary'>v</span>il</h1>
           </Link>
-        </div>
-        <ul className="flex items-center justify-between space-x-10 cursor-pointer text-normal">
-          <li>
-            <a href="/cart" className="flex items-center">
-              <AiOutlineShoppingCart className="text-xl" />
-              <span className="relative flex items-center justify-center w-4 h-4 text-xs text-white rounded-full right-2 bg-stone-700 bottom-2">
-                  {cartArray.length}
-                </span>
-            </a>
-          </li>
-          <li>
-            <a href="/#product" className="flex items-center">
-              <AiOutlineHeart className="mr-2" /> Products
-            </a>
-          </li>
-          <li>
-            <a href="/#delivery" className="flex items-center">
-              <MdOutlineDeliveryDining className="mr-2" /> Delivery
-            </a>
-          </li>
-          <li>
-            <a href="/#contact" className="flex items-center">
-              <AiOutlineMail className="mr-2" /> Contact
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      {/* mobile */}
-      <div className="flex items-center justify-between lg:hidden">
-        <Link to="/" className="text-3xl font-bold text-secondary">
-          Ci<span className="text-primary">v</span>il
-        </Link>
-        <ul
-          onClick={() => setNav(!nav)}
-          className={`absolute top-[74px] z-20 bg-blueShade items-center w-full left-0 py-10 text-secondary h-full ${
-            nav ? "block" : "hidden"
-          }`}
-        >
-          <div className="flex flex-col items-center justify-between text-lg h-96">
-            <li>
-              <a href="/#product">Products</a>
-            </li>
-            <li>
-              <a href="/#delivery">Delivery</a>
-            </li>
-            <li>
-              <a href="/#contact">Contact</a>
-            </li>
-
-            <li className="flex items-center justify-center w-32 p-2 text-white bg-black rounded-full cursor-pointer">
-              <a href="/cart" className="flex items-center">
-                <AiOutlineShoppingCart className="mr-2" /> 
-              </a>
-              <span className="relative flex items-center justify-center w-4 h-4 text-xs text-white rounded-full right-2 bg-stone-700 bottom-2">
-                  {cartArray.length}
-                </span>
-            </li>
-            <li className="flex items-center justify-center w-32 p-2 text-black bg-white rounded-full cursor-pointer">
-              <a href="/#delivery" className="flex items-center">
-                <MdOutlineDeliveryDining className="mr-2" /> Delivery
-              </a>
-            </li>
+          <div className="flex flex-1 items-center  ">
+           <ul className=" flex justify-center flex-1">
+            <li className="mr-8 capitalize">What's New</li>
+            <li className="mr-8 capitalize">Shop</li>
+            <li className="mr-8 capitalize"><Collections /></li>
+            <li className="mr-8 capitalize">Pre-Order</li>
+            <li className="capitalize">Ready to wear</li>
+           </ul>
           </div>
-        </ul>
-        <div className="block text-3xl lg:hidden" onClick={() => setNav(!nav)}>
-          {!nav ? <CiMenuBurger /> : <TfiClose />}
+          <div className="flex">
+          <div className="mx-2">
+              <a href="/help">Help</a>
+            </div>
+            <div className="flex items-center mx-2">
+              <a href="/accounts" className="flex items-center">
+                <AiOutlineUser className="text-white" />
+              </a>
+            </div>
+            <div className="flex items-center ml-2">
+              <a href="/cart" className="flex items-center">
+                <span>
+                  <AiOutlineShoppingCart className="text-white " />
+                </span>
+                <span className="relative right-2 bg-primary bottom-2 h-4 w-4 text-white flex items-center justify-center text-xs rounded-full">
+                  {cartArray.length}
+                </span>
+              </a>
+            </div>
+          </div>
         </div>
-      </div>
-    </nav>
+
+        {/* mobile */}
+        <div className="lg:hidden flex justify-between items-center p-4 bg-black">
+          <Link to="/" className="flex items-center text-xl font-bold ">
+          <h1 className="text-2xl">Ci<span className='text-primary'>v</span>il</h1>
+          </Link>
+          <ul
+            onClick={() => setNav(!nav)}
+            className={`absolute top-[63px] z-20 bg-gray-50 items-center w-full left-0 py-10 text-sky h-full ${
+              nav ? "block" : "hidden"
+            }`}
+          >
+            <div className="flex flex-col h-96 text-lg  items-center justify-between">
+              <li>
+                <a href="/#product">Products</a>
+              </li>
+              <li>
+                <a href="/#help">Help</a>
+              </li>
+              <li className="cursor-pointer bg-white text-black p-2 w-32 flex items-center justify-center rounded-full">
+                <a href="/#accounts" className="flex items-center">
+                  <AiOutlineUser className="mr-2" /> Sign in
+                </a>
+              </li>
+              <li className="cursor-pointer bg-black text-white p-2 w-32 flex items-center justify-center rounded-full">
+                <a href="/cart" className="flex items-center">
+                  <AiOutlineShoppingCart className="mr-2" /> Cart
+                </a>
+              </li>
+            </div>
+          </ul>
+          <div
+            className="lg:hidden block text-3xl text-white"
+            onClick={() => setNav(!nav)}
+          >
+            {!nav ? <CiMenuBurger /> : <TfiClose />}
+          </div>
+        </div>
+      </nav>
+    </>
   );
 };
 
-export default NavBar;
+export default Header;

@@ -31,10 +31,10 @@ const ProductDetails = ({ product }: { product: ProductItem[] }) => {
   return (
     <div>
        
-<div className="bg-white" data-aos="fade-in">
+<div className="bg-white px-[45px] py-10 mx-auto  " >
   <div className="pt-6">
     <nav aria-label="Breadcrumb">
-      <ol role="list" className="flex items-center max-w-2xl px-4 mx-auto space-x-2 sm:px-6 lg:max-w-7xl lg:px-8">
+      <ol className="flex items-center ">
         <li>
           <div className="flex items-center">
             <a href="/" className="mr-2 text-sm font-medium text-gray-900">Home</a>
@@ -45,7 +45,7 @@ const ProductDetails = ({ product }: { product: ProductItem[] }) => {
         </li>
         <li>
           <div className="flex items-center">
-            <a href="/" className="mr-2 text-sm font-medium text-gray-900">Products</a>
+            <a href="/" className="text-sm font-medium text-gray-900">Products</a>
             <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor" aria-hidden="true" className="w-4 h-5 text-gray-300">
               <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
             </svg>
@@ -58,7 +58,7 @@ const ProductDetails = ({ product }: { product: ProductItem[] }) => {
       </ol>
     </nav>
 
-    <div className="max-w-2xl mx-auto mt-6 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
+    <div className="  mt-6  lg:grid  lg:grid-cols-3 lg:gap-x-8">
       <div className="hidden overflow-hidden rounded-lg aspect-h-4 aspect-w-3 lg:block">
         <img src={products.image} alt="Model wearing BLACK GOWN." className="object-cover object-center w-full h-full"/>
       </div>
@@ -75,16 +75,16 @@ const ProductDetails = ({ product }: { product: ProductItem[] }) => {
       </div>
     </div>
 
-    <div className="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16">
+    <div className=" pb-16 pt-10 lg:grid lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:pb-24 lg:pt-16">
       <div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
         <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">{products.title}</h1>
       </div>
 
-      <div className="mt-4 lg:row-span-3 lg:mt-0">
+      <div className="mt-4 lg:row-span-3 lg:mt-0"  data-aos="fade-left">
         <h2 className="sr-only">Product information</h2>
         <p className="text-3xl tracking-tight text-gray-900">${products.price}</p>
 
-        <div className="mt-6">
+        <div className="mt-6" >
           <h3 className="sr-only">Reviews</h3>
           <div className="flex items-center">
           <div className="flex space-x-2 text-xl text-yellow-400">
@@ -195,24 +195,22 @@ const ProductDetails = ({ product }: { product: ProductItem[] }) => {
           {!cartArray.find((item) => item.id === products.id) ? (
                 <button
                   onClick={() => handleAddToCart(products)}
-                  className="flex items-center justify-center p-2 my-5 rounded-md"
+                  className="flex items-center justify-center w-full px-8 py-3 mt-10 text-base font-medium text-white border border-transparent rounded-md bg-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                 >
-                  <AiOutlineShoppingCart className="mr-2" /> Add
+                  <AiOutlineShoppingCart className="mr-2" /> Add to Cart
                 </button>
               ) : (
                 <button
                   onClick={() => removeFromCart(products.id)}
-                  className="flex items-center justify-center p-2 my-5 rounded-md"
+                  className="flex items-center justify-center w-full px-8 py-3 mt-10 text-base font-medium text-white border border-transparent rounded-md bg-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                 >
-                  <AiOutlineShoppingCart className="mr-2" /> Remove
+                  <AiOutlineShoppingCart className="mr-2" /> Remove from Cart
                 </button>
               )}
-
-          <button type="submit" className="flex items-center justify-center w-full px-8 py-3 mt-10 text-base font-medium text-white border border-transparent rounded-md bg-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">Add to Cart</button>
         </form>
       </div>
 
-      <div className="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">
+      <div className="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6" data-aos="fade-right">
         <div>
           <h3 className="sr-only">Description</h3>
 
@@ -225,7 +223,7 @@ const ProductDetails = ({ product }: { product: ProductItem[] }) => {
           <h3 className="text-sm font-medium text-gray-900">Highlights</h3>
 
           <div className="mt-4">
-            <ul role="list" className="pl-4 space-y-2 text-sm list-disc">
+            <ul className="pl-4 space-y-2 text-sm list-disc">
               <li className="text-gray-400"><span className="text-gray-600">Hand cut and sewn locally</span></li>
               <li className="text-gray-400"><span className="text-gray-600">Handled with care</span></li>
               <li className="text-gray-400"><span className="text-gray-600">Pre-washed &amp; pre-shrunk</span></li>
@@ -244,6 +242,7 @@ const ProductDetails = ({ product }: { product: ProductItem[] }) => {
       </div>
     </div>
   </div>
+  <hr className="my-6" />
 </div>
 
     </div>
