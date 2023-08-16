@@ -18,7 +18,7 @@ const ProductCard = ({ product }: { product: ProductItem[] }) => {
               <img
                 src={product.image}
                 alt="product"
-                className=" w-full h-[280px] rounded-lg"
+                className=" w-full h-[280px] rounded-lg bg-center"
               />
             </div>
             <div className="p-4">
@@ -28,7 +28,7 @@ const ProductCard = ({ product }: { product: ProductItem[] }) => {
             <div>
               <div className="flex justify-between pt-5">
                 <p className="text-base font-medium text-text"> ${product.price}.00 </p>
-                <Link to={`/productDetails/${product.id}`}>
+                <Link to={`/product-details/${product.id}`}>
                   <Button className="w-20 p-1 ml-10 text-sm font-medium text-primary border-primary hover:bg-primary hover:text-white lg:ml-5 xl:ml-10">
                     View More
                   </Button>
