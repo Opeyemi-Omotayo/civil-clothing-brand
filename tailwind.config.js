@@ -11,7 +11,7 @@ module.exports = {
         normal: "#FFFFFF",
       },
       height: {
-        '80vh': '80vh',
+        '70vh': '70vh',
       },
       backgroundImage: {
         'my-image': "url('https://img.freepik.com/free-photo/sensual-black-woman-with-beautiful-wavy-hairs-elegant-golden-satin-suit-posing-beige-wall-spring-fashion-look-full-lenght_273443-4100.jpg?w=2000&t=st=1691516259~exp=1691516859~hmac=c00721870fa5d66d37a31af6dff28e1a0725821803b0fa9a9bee29587c9aa35a')",

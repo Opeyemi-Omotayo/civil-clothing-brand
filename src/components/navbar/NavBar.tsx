@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { CiMenuBurger } from "react-icons/ci";
 import { TfiClose } from "react-icons/tfi";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import { AiOutlineUser } from "react-icons/ai";
 import Store from "../../store/Store";
 import Collections from "../../micro/collections/Collections";
 import Accounts from "../../micro/accounts/Accounts";
@@ -76,7 +75,7 @@ const NavBar = () => {
               <a href="/#help">Help</a>
               </li>
               <li className="cursor-pointer bg-black text-white p-2 w-32 flex items-center justify-center rounded-full">
-              <Accounts /> <span className="ml-2"> User</span> 
+              <Accounts />  
               </li>
             </div>
           </ul>
