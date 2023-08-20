@@ -1,5 +1,6 @@
 import Store from "../../store/Store";
 import { BiArrowBack } from "react-icons/bi";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 import React from "react";
 import FunkyBanner from "../banner/FunkyBanner";
 import { toast } from "react-toastify";
@@ -58,7 +59,7 @@ const Cart = () => {
             Go to shop and add to cart product you'd like to buy.
           </p>
           <a href="/#product">
-            <button className="flex items-center p-3 mt-8 text-white bg-primary rounded-md animate-verticalBounce">
+            <button className="flex items-center p-3 mt-8 text-white rounded-md bg-primary animate-verticalBounce">
               <BiArrowBack className="mr-2" /> Return to Shop
             </button>
           </a>
@@ -81,10 +82,10 @@ const Cart = () => {
                 <ul className="-my-6 divide-y divide-gray-200">
                   {cart.map((item) => (
                     <li className="flex py-6 border-b" key={item.id}>
-                      <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-                        <img src={item.image} alt="product" className="h-full w-full object-cover object-center"/>
+                      <div className="flex-shrink-0 w-24 h-24 overflow-hidden border border-gray-200 rounded-md">
+                        <img src={item.image} alt="product" className="object-cover object-center w-full h-full"/>
                       </div>
-                    <div className="ml-4 flex flex-1 flex-col" >
+                    <div className="flex flex-col flex-1 ml-4" >
                         <div>
                           <div className="flex justify-between text-base font-medium text-gray-900">
                             <h3>
@@ -94,8 +95,8 @@ const Cart = () => {
                           </div>
                           <p className="mt-1 text-sm text-gray-500">Blue</p>
                         </div>
-                        <div className="flex flex-1 items-end justify-between text-sm">
-                          <div className="text-gray-500 flex border-gray-700 shadow-sm rounded-md">
+                        <div className="flex items-end justify-between flex-1 text-sm">
+                          <div className="flex text-gray-500 border-gray-700 rounded-md shadow-sm">
                           <button
                           className="w-8 h-8"
                           onClick={() => handleDecrementQuantity(item.id)}
@@ -121,7 +122,7 @@ const Cart = () => {
                   </ul>
             </div>
 
-            <div className="p-5 lg:mt-0 mt-8  ml-0 lg:ml-10 border rounded-md lg:w-4/12 h-fit bg-gray-50">
+            <div className="p-5 mt-8 ml-0 border rounded-md lg:mt-0 lg:ml-10 lg:w-4/12 h-fit bg-gray-50">
               <div className="pb-3">
                  <h1 className="text-lg font-semibold">Order Summary</h1>
               </div>
@@ -131,46 +132,19 @@ const Cart = () => {
                 </h1>
                 <p className="text-sm font-medium">${billings.total}.00</p>
               </div>
-              <div className="flex items-center justify-between py-1 border-b" >
-                <h1 className="py-3 text-sm font-semibold">
-                  Discount
-                </h1>
-                <p className="text-sm font-medium">${billings.discount}.00</p>
-              </div>
-              <div className="flex items-center justify-between py-1 border-b">
-                <h1 className="py-3 text-sm font-semibold">
-                  Shipping estimate
-                </h1>
-                <p className="text-sm font-medium">${billings.shipping}.00</p>
-              </div>
-              <div className="flex items-center justify-between py-1 border-b">
-                <h1 className="py-3 text-sm font-semibold">
-                  Tax estimate
-                </h1>
-                <p className="text-sm font-medium">${billings.tax}.00</p>
-              </div>
-              <div className="flex items-center justify-between py-2">
-                <h1 className="py-5 text-lg font-medium">
-                  Order Total
-                </h1>
-                <p className="text-lg font-medium">
-                  $
-                  {Math.round(
-                    billings.total +
-                      billings.tax +
-                      billings.shipping -
-                      billings.discount
-                  )}
-                  .00
-                </p>
+              <div className="my-8">
+                <h1 className="text-sm">Shipping & taxes calculated at <span className="font-semibold"> checkout</span></h1>
               </div>
               <button
-                className="w-full p-3 text-white bg-primary rounded-md"
+                className="flex items-center justify-center w-full p-3 text-white rounded-md bg-primary hover:bg-black"
                 onClick={() => {
                   toast('coming soon');
                 }}
               >
-                Checkout
+               <span>
+                  <AiOutlineShoppingCart className="mr-1 text-white" />
+                </span> 
+                <span>Checkout</span>
               </button>
             </div>
           </section>

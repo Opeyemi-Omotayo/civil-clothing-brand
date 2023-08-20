@@ -53,7 +53,7 @@ const SignUp = () => {
       <div className="flex items-center justify-center mt-10 font-Lato mb-[7rem]">
         <form action="" className="w-4/6 md:w-3/6 lg:w-2/6" onSubmit={onSignInSubmit}>
           <div className="flex items-center justify-center my-6">
-            <h1 className=" text-2xl md:text-3xl font-bold">CREATE ACCOUNT</h1>
+            <h1 className="text-2xl font-bold  md:text-3xl">CREATE ACCOUNT</h1>
           </div>
           <div className="flex items-center justify-between">
             <div className="w-[48%]">
@@ -70,7 +70,7 @@ const SignUp = () => {
             </div>
             <div className="w-[48%]">
               <Input
-                id="lastname"
+                id="lastName"
                 element="input"
                 type="text"
                 label=" Last Name"
@@ -103,13 +103,13 @@ const SignUp = () => {
           <div className="flex items-center justify-between">
             <button
               type="submit"
-              className="text-white bg-primary px-4 py-2 lg:px-10 lg:py-4 rounded-md shadow disabled:cursor-not-allowed"
+              className="px-4 py-2 text-white rounded-md shadow bg-primary lg:px-10 lg:py-4 disabled:cursor-not-allowed"
               disabled={!formState.isValid}
               onClick={onSignInSubmit}
             >
               SIGNUP
             </button>
-            <h1 className=" text-xs md:text-sm ">
+            <h1 className="text-xs  md:text-sm">
               <span>Returning Customer? </span>{" "}
               <Link
                 onClick={switchModeHandler}

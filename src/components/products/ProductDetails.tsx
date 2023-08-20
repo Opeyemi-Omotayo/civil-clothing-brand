@@ -59,7 +59,7 @@ const ProductDetails = ({ product }: { product: ProductItem[] }) => {
       </ol>
     </nav>
 
-    <div className="  mt-6  lg:grid  lg:grid-cols-3 lg:gap-x-8">
+    <div className="mt-6 lg:grid lg:grid-cols-3 lg:gap-x-8">
       <div className="hidden overflow-hidden rounded-lg aspect-h-4 aspect-w-3 lg:block">
         <img src={products.image} alt="Model wearing BLACK GOWN." className="object-cover object-center w-full h-full"/>
       </div>
