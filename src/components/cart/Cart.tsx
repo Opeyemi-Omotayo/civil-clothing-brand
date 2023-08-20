@@ -4,6 +4,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import React from "react";
 import FunkyBanner from "../banner/FunkyBanner";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 
 const Cart = () => {
@@ -135,7 +136,8 @@ const Cart = () => {
               <div className="my-8">
                 <h1 className="text-sm">Shipping & taxes calculated at <span className="font-semibold"> checkout</span></h1>
               </div>
-              <button
+              <Link 
+              to="/checkouts/details"
                 className="flex items-center justify-center w-full p-3 text-white rounded-md bg-primary hover:bg-black"
                 onClick={() => {
                   toast('coming soon');
@@ -145,7 +147,7 @@ const Cart = () => {
                   <AiOutlineShoppingCart className="mr-1 text-white" />
                 </span> 
                 <span>Checkout</span>
-              </button>
+              </Link>
             </div>
           </section>
         </>

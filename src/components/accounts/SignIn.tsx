@@ -28,10 +28,8 @@ const SignIn = () => {
     setFormData(
       {
         ...formState.inputs,
-        name: undefined,
-        number: undefined,
-        username: undefined,
-        image: undefined,
+        firstname: undefined,
+        lastname: undefined,
       },
       formState.inputs.email.isValid && formState.inputs.password.isValid
     );
@@ -45,9 +43,9 @@ const SignIn = () => {
   return (
     <React.Fragment>
       <div className="flex items-center justify-center mt-10 font-Lato mb-[7rem]">
-        <form action="" className=" w-4/6  md:w-3/6 lg:w-2/6 " onSubmit={submitHandler}>
+        <form action="" className="w-4/6  md:w-3/6 lg:w-2/6" onSubmit={submitHandler}>
           <div className="flex items-center justify-center my-6">
-            <h1 className=" text-2xl lg:text-3xl font-bold ">LOGIN</h1>
+            <h1 className="text-2xl font-bold  lg:text-3xl">LOGIN</h1>
           </div>
           <Input
             id="email"
@@ -70,12 +68,12 @@ const SignIn = () => {
           />
           <div className="flex items-center justify-between">
             <button
-              className="text-white bg-primary px-4 py-2 lg:px-10 lg:py-4 rounded-md shadow disabled:cursor-not-allowed"
+              className="px-4 py-2 text-white rounded-md shadow bg-primary lg:px-10 lg:py-4 disabled:cursor-not-allowed"
               disabled={!formState.isValid}
             >
               SIGNIN
             </button>
-            <h1 className=" text-xs md:text-sm ">
+            <h1 className="text-xs  md:text-sm">
               <span>New Customer? </span>{" "}
               <Link
                 onClick={switchModeHandler}
