@@ -4,7 +4,7 @@ import { VALIDATOR_REQUIRE, VALIDATOR_EMAIL } from '../../validation/Validator';
 import { useForm } from '../../hooks/form-hook';
 
 const CheckOutDetails = () => {
-    const [ inputHandler] = useForm(
+    const [formState, inputHandler] = useForm(
         {
           email: {
             value: "",
@@ -19,8 +19,8 @@ const CheckOutDetails = () => {
       );
 
   return (
-    <div className='flex'>
-        <div className='bg-gray-50'>
+    <div className='flex py-10 pb-4 mx-auto px-[25px] lg:px-[45px]'>
+        <div>
         <div>
             <h1 className='text-4xl'>CIVIL</h1>
             <h3>Contact details</h3>
@@ -86,7 +86,6 @@ const CheckOutDetails = () => {
                 element="input"
                 type="text"
                 placeholder="Apartment Suite, etc. (Optional)"
-                validators={[VALIDATOR_REQUIRE()]}
                 onInput={inputHandler}
               />
                <div className="flex items-center justify-between">
@@ -134,12 +133,12 @@ const CheckOutDetails = () => {
                 onInput={inputHandler}
               />
               <div>
-                <button  className="w-full p-3 text-white rounded-md bg-primary hover:bg-black">Continue to shipping</button>
+                <button disabled={!formState.isValid} className="w-full p-3 text-white rounded-md bg-primary hover:bg-black">Continue to shipping</button>
               </div>
         </div>
         </div>
         <div className='bg-gray-200'>
-<h1>hereee</h1>
+           <h1>hereee</h1>
         </div>
     </div>
   )
