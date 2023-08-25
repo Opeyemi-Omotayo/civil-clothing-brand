@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 import { useForm } from "../../hooks/form-hook";
 import {
@@ -11,6 +12,7 @@ import { Link } from "react-router-dom";
 import {toast} from 'react-toastify';
 
 const SignUp = () => {
+  const navigate = useNavigate();
   const [formState, inputHandler, setFormData] = useForm(
     {
       email: {
@@ -44,6 +46,22 @@ const SignUp = () => {
 
   const onSignInSubmit = (e: any) => {
     e.preventDefault();
+
+    fetch(
+      process.env.REACT_APP_BACKEND_URL + "/api/users/registration",{
+      method: "POST",
+      body: JSON.stringify({
+        firstName: formState.inputs.firstName.value,
+        lastName: formState.inputs.lastName.value,
+        email: formState.inputs.email.value,
+        password: formState.inputs.password.value,
+        role: "customer"
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      }
+  });
+  navigate('/');
     toast('Account Created');
   };
 

@@ -2,8 +2,11 @@ import React from 'react';
 import Input from '../../micro/input/Input';
 import { VALIDATOR_REQUIRE, VALIDATOR_EMAIL } from '../../validation/Validator';
 import { useForm } from '../../hooks/form-hook';
+import Store from '../../store/Store';
+import { ProductItem } from '../../App';
 
-const CheckOutDetails = () => {
+const CheckOutDetails = ({ products }: { products: ProductItem[] }) => {
+  const {cartArray} = Store()
     const [formState, inputHandler] = useForm(
         {
           email: {
@@ -138,7 +141,7 @@ const CheckOutDetails = () => {
         </div>
         </div>
         <div className='bg-gray-200'>
-           <h1>hereee</h1>
+       
         </div>
     </div>
   )
