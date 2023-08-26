@@ -141,7 +141,7 @@ const CheckOutDetails = ({ products }: { products: ProductItem[] }) => {
         </div>
         </div>
         <div className='bg-gray-200'>
-       
+
         </div>
     </div>
   )
