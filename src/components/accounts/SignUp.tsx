@@ -44,25 +44,30 @@ const SignUp = () => {
     );
   };
 
-  const onSignInSubmit = (e: any) => {
+  const onSignInSubmit = async(e: any) => {
     e.preventDefault();
-
-    fetch(
-      process.env.REACT_APP_BACKEND_URL + "/api/users/registration",{
-      method: "POST",
-      body: JSON.stringify({
-        firstName: formState.inputs.firstName.value,
-        lastName: formState.inputs.lastName.value,
-        email: formState.inputs.email.value,
-        password: formState.inputs.password.value,
-        role: "customer"
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      }
-  });
-  navigate('/');
+    try{
+     const response = await fetch(
+        process.env.REACT_APP_BACKEND_URL + "/api/users/registration",{
+        method: "POST",
+        body: JSON.stringify({
+          firstName: formState.inputs.firstName.value,
+          lastName: formState.inputs.lastName.value,
+          email: formState.inputs.email.value,
+          password: formState.inputs.password.value,
+          role: "customer"
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        }
+    });
+    navigate('/');
     toast('Account Created');
+    }catch(err){
+      console.log(err);
+      throw err;
+    }
+    
   };
 
 
