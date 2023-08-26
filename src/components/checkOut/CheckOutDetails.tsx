@@ -148,13 +148,14 @@ const CheckOutDetails = ({ products }: { products: ProductItem[] }) => {
             errorText="Please enter your Phone."
             onInput={inputHandler}
           />
-          <div className='flex items-center justify-end pt-3'>
-            <button disabled={!formState.isValid} className="w-2/6 p-3 text-white rounded-md bg-primary hover:bg-black">Continue to shipping</button>
-          </div>
+          <Link to={'/checkout/shipping'} className='flex items-center justify-end pt-3'>
+            <button disabled={!formState.isValid} className="cursor-pointer w-2/6 p-3 text-white rounded-md bg-primary hover:bg-black">Continue to shipping</button>
+          </Link>
         </div>
       </div>
       <div className='bg-gray-200 w-[40%] pl-6'>
-        <ul className="-my-6 divide-y divide-gray-200 py-10 pb-4 mx-auto px-[25px] lg:px-[25px]">
+        <div className='py-10 pb-4 mx-auto px-[25px] lg:px-[25px]'>
+        <ul className="-my-6 divide-y divide-gray-200 ">
           {cartArray.map((item) => (
             <li className="flex py-6 border-b" key={item.id}>
               <div className="flex-shrink-0 w-[50px] h-[50px] overflow-hidden border border-gray-200 rounded-md">
@@ -174,7 +175,7 @@ const CheckOutDetails = ({ products }: { products: ProductItem[] }) => {
             </li>
           ))}
         </ul>
-        <div>
+        <div className='mt-[5rem]'>
           <div className="pb-3">
             <h1 className="text-lg font-semibold">Order Summary</h1>
           </div>
@@ -190,8 +191,15 @@ const CheckOutDetails = ({ products }: { products: ProductItem[] }) => {
             </h1>
             <p className="text-sm font-medium">calculated at next step</p>
           </div>
-
+          <div className="flex items-center justify-between py-1 border-b">
+            <h1 className="text-sm font-bold">
+              Total
+            </h1>
+            <p className="text-lg font-semibold">${billings.total}.00</p>
+          </div>
         </div>
+        </div>
+        
       </div>
     </div>
   )
