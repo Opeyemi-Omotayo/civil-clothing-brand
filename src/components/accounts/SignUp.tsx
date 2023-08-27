@@ -47,7 +47,7 @@ const SignUp = () => {
   const onSignInSubmit = async(e: any) => {
     e.preventDefault();
     try{
-     const response = await fetch(
+      await fetch(
         process.env.REACT_APP_BACKEND_URL + "/api/users/registration",{
         method: "POST",
         body: JSON.stringify({
@@ -76,7 +76,7 @@ const SignUp = () => {
       <div className="flex items-center justify-center mt-10 font-Lato mb-[7rem]">
         <form action="" className="w-4/6 md:w-3/6 lg:w-2/6" onSubmit={onSignInSubmit}>
           <div className="flex items-center justify-center my-6">
-            <h1 className="text-2xl font-bold  md:text-3xl">CREATE ACCOUNT</h1>
+            <h1 className="text-2xl font-bold md:text-3xl">CREATE ACCOUNT</h1>
           </div>
           <div className="flex items-center justify-between">
             <div className="w-[48%]">
@@ -132,7 +132,7 @@ const SignUp = () => {
             >
               SIGNUP
             </button>
-            <h1 className="text-xs  md:text-sm">
+            <h1 className="text-xs md:text-sm">
               <span>Returning Customer? </span>{" "}
               <Link
                 onClick={switchModeHandler}
