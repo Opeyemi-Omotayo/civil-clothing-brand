@@ -7,7 +7,7 @@ interface CartDetailsProps {
 
 const CartDetails: React.FC<CartDetailsProps> = ({ cartArray, billings }) => {
   return (
-    <div className='bg-gray-50 border shadow rounded w-[40%] pl-6 '>
+    <div className='bg-gray-50 border shadow rounded w-[100%] lg:w-[40%] pl-0 lg:pl-6 mt-3 lg:mt-0 '>
     <div className='py-10 pb-4 mx-auto px-[25px] lg:px-[25px]'>
     <ul className="-my-6 divide-y divide-gray-200 ">
       {cartArray.map((item) => (

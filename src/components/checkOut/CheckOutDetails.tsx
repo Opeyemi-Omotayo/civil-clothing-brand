@@ -31,8 +31,8 @@ const CheckOutDetails = ({ products }: { products: ProductItem[] }) => {
 
 
   return (
-    <div className='flex mb-[8rem] '>
-      <div className='w-[60%] py-10 pb-4 mx-auto px-[25px] lg:px-[45px]'>
+    <div className='flex flex-col lg:flex-row mb-[5rem] lg:mb-[8rem] '>
+      <div className='w-[100%] lg:w-[60%] py-10 pb-4 mx-auto px-[25px] lg:px-[45px]'>
       <Link to='/' className="flex items-center justify-center pb-8">
             <h1 className="text-5xl">Ci<span className='text-primary'>v</span>il</h1>
       </Link>
@@ -156,7 +156,7 @@ const CheckOutDetails = ({ products }: { products: ProductItem[] }) => {
             onInput={inputHandler}
           />
           <Link to={'/checkouts/shipping'} className='flex items-center justify-end pt-3'>
-            <button disabled={!formState.isValid} className="w-2/6 p-3 text-white rounded-md cursor-pointer disabled:cursor-not-allowed bg-primary hover:bg-black">Continue to shipping</button>
+            <button disabled={!formState.isValid} className="w-3/6 p-3 text-sm text-white rounded-md cursor-pointer md:text-lg lg:w-2/6 disabled:cursor-not-allowed bg-primary hover:bg-black">Continue to shipping</button>
           </Link>
         </div>
       </div>
