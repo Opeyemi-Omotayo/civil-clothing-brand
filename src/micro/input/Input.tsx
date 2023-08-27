@@ -61,7 +61,7 @@ const Input = (props: any) => {
             !inputState.isValid &&
             inputState.isTouched &&
             "bg-red-200 border-red-600"
-          } h-[32px] bg-gray-50 border border-gray-600 p-6 outline-none`}
+          } h-[32px] bg-gray-100 border rounded-md p-6 outline-none`}
       />
     ) : (
       <textarea

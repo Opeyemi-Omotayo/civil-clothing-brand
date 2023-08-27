@@ -5,6 +5,7 @@ import { VALIDATOR_REQUIRE, VALIDATOR_EMAIL } from '../../validation/Validator';
 import { useForm } from '../../hooks/form-hook';
 import Store from '../../store/Store';
 import { ProductItem } from '../../App';
+import CartDetails from '../../micro/checkout/CartDetails';
 
 const CheckOutDetails = ({ products }: { products: ProductItem[] }) => {
   const { cartArray } = Store();
@@ -22,16 +23,22 @@ const CheckOutDetails = ({ products }: { products: ProductItem[] }) => {
     false
   );
 
-  const total = cartArray.reduce((acc, item) => acc + item.price * item.quantity, 0);
-  const billings = { total };
+    const subTotal = cartArray.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    const shippingCost = 0;
+    const total = subTotal + shippingCost;
+    const billings = { subTotal, total };
+
 
 
   return (
-    <div className='flex '>
+    <div className='flex mb-[8rem] '>
       <div className='w-[60%] py-10 pb-4 mx-auto px-[25px] lg:px-[45px]'>
+      <Link to='/' className="flex items-center justify-center pb-8">
+            <h1 className="text-5xl">Ci<span className='text-primary'>v</span>il</h1>
+      </Link>
         <div className='flex justify-between pb-4'>
-          <h1 className='text-4xl '>Contact details</h1>
-          <h1 className="text-xs  md:text-sm flex items-center">
+          <h1 className='text-xl font-semibold'>Contact details</h1>
+          <h1 className="flex items-center text-xs md:text-sm">
             <span>Returning Customer? </span>{" "}
             <Link
               to="/accounts/login"
@@ -149,58 +156,11 @@ const CheckOutDetails = ({ products }: { products: ProductItem[] }) => {
             onInput={inputHandler}
           />
           <Link to={'/checkouts/shipping'} className='flex items-center justify-end pt-3'>
-            <button disabled={!formState.isValid} className="cursor-pointer  disabled:cursor-not-allowed w-2/6 p-3 text-white rounded-md bg-primary hover:bg-black">Continue to shipping</button>
+            <button disabled={!formState.isValid} className="w-2/6 p-3 text-white rounded-md cursor-pointer disabled:cursor-not-allowed bg-primary hover:bg-black">Continue to shipping</button>
           </Link>
         </div>
       </div>
-      <div className='bg-gray-200 w-[40%] pl-6'>
-        <div className='py-10 pb-4 mx-auto px-[25px] lg:px-[25px]'>
-        <ul className="-my-6 divide-y divide-gray-200 ">
-          {cartArray.map((item) => (
-            <li className="flex py-6 border-b" key={item.id}>
-              <div className="flex-shrink-0 w-[50px] h-[50px] overflow-hidden border border-gray-200 rounded-md">
-                <img src={item.image} alt="product" className="object-cover object-center w-full h-full" />
-              </div>
-              <div className="flex flex-col flex-1 ml-4" >
-                <div>
-                  <div className="flex justify-between text-base font-medium text-gray-900">
-                    <h3>
-                      <a href="/#">{item.title} - Blue - L</a>
-                    </h3>
-                    <p className="ml-4">${item.price * item.quantity}.00</p>
-                  </div>
-                  <p className="mt-1 text-sm text-gray-500">Qty: {item.quantity}</p>
-                </div>
-              </div>
-            </li>
-          ))}
-        </ul>
-        <div className='mt-[5rem]'>
-          <div className="pb-3">
-            <h1 className="text-lg font-semibold">Order Summary</h1>
-          </div>
-          <div className="flex items-center justify-between py-1 border-b">
-            <h1 className="text-sm font-semibold">
-              Subtotal
-            </h1>
-            <p className="text-sm font-medium">${billings.total}.00</p>
-          </div>
-          <div className="flex items-center justify-between py-1 border-b">
-            <h1 className="text-sm font-semibold">
-              Shipping
-            </h1>
-            <p className="text-sm font-medium">calculated at next step</p>
-          </div>
-          <div className="flex items-center justify-between py-1 border-b">
-            <h1 className="text-sm font-bold">
-              Total
-            </h1>
-            <p className="text-lg font-semibold">${billings.total}.00</p>
-          </div>
-        </div>
-        </div>
-        
-      </div>
+      <CartDetails cartArray={cartArray} billings={billings}  />
     </div>
   )
 }
