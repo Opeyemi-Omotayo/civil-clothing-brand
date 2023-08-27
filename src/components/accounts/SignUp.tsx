@@ -10,6 +10,7 @@ import {
 import Input from "../../micro/input/Input";
 import { Link } from "react-router-dom";
 import {toast} from 'react-toastify';
+import NavBar from "../navbar/NavBar";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -73,6 +74,7 @@ const SignUp = () => {
 
   return (
     <React.Fragment>
+      <NavBar />
       <div className="flex items-center justify-center mt-10 font-Lato mb-[7rem]">
         <form action="" className="w-4/6 md:w-3/6 lg:w-2/6" onSubmit={onSignInSubmit}>
           <div className="flex items-center justify-center my-6">

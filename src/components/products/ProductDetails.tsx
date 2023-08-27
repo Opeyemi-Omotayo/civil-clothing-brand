@@ -5,6 +5,7 @@ import { RiStarSFill } from "react-icons/ri";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { useParams } from 'react-router-dom';
 import FunkyBanner from '../banner/FunkyBanner';
+import NavBar from '../navbar/NavBar';
 
 
 const ProductDetails = ({ product }: { product: ProductItem[] }) => {
@@ -31,7 +32,7 @@ const ProductDetails = ({ product }: { product: ProductItem[] }) => {
     }
   return (
     <div>
-       
+       <NavBar />
 <div className="bg-white px-[25px] lg:px-[45px] py-10 mx-auto  " >
   <div className="pt-6">
     <nav aria-label="Breadcrumb">

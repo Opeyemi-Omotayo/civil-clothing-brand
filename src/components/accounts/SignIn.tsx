@@ -8,6 +8,7 @@ import {
 } from "../../validation/Validator";
 import { useForm } from "../../hooks/form-hook";
 import { toast } from "react-toastify";
+import NavBar from "../navbar/NavBar";
 
 const SignIn = () => {
   const [formState, inputHandler, setFormData] = useForm(
@@ -42,10 +43,11 @@ const SignIn = () => {
 
   return (
     <React.Fragment>
+      <NavBar />
       <div className="flex items-center justify-center mt-10 font-Lato mb-[7rem]">
-        <form action="" className="w-4/6  md:w-3/6 lg:w-2/6" onSubmit={submitHandler}>
+        <form action="" className="w-4/6 md:w-3/6 lg:w-2/6" onSubmit={submitHandler}>
           <div className="flex items-center justify-center my-6">
-            <h1 className="text-2xl font-bold  lg:text-3xl">LOGIN</h1>
+            <h1 className="text-2xl font-bold lg:text-3xl">LOGIN</h1>
           </div>
           <Input
             id="email"
@@ -73,7 +75,7 @@ const SignIn = () => {
             >
               SIGNIN
             </button>
-            <h1 className="text-xs  md:text-sm">
+            <h1 className="text-xs md:text-sm">
               <span>New Customer? </span>{" "}
               <Link
                 onClick={switchModeHandler}

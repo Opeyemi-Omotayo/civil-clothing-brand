@@ -5,6 +5,7 @@ import React from "react";
 import FunkyBanner from "../banner/FunkyBanner";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
+import NavBar from "../navbar/NavBar";
 
 
 const Cart = () => {
@@ -50,6 +51,8 @@ const Cart = () => {
   }, [cartArray]);
 
   return (
+    <>
+    <NavBar />
     <main className="px-[25px] lg:px-[45px] pt-12 lg:pt-20 font-Lato">
       {cartArray.length === 0 ? (
         <div className="flex flex-col items-center justify-center space-y-5 text-center mb-[8rem]">
@@ -154,6 +157,7 @@ const Cart = () => {
       )}
       <FunkyBanner />
     </main>
+    </>
   );
 };
 

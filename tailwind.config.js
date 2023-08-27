@@ -19,7 +19,7 @@ module.exports = {
         'banner-2': "url('https://img.freepik.com/premium-photo/beautiful-woman-with-long-red-dress_593226-574.jpg?w=1000')",
       },
       fontFamily: {
-        Lato: ["Lato", "sans-serif"],
+        font: ["Quicksand", "sans-serif"],
       },
       keyframes: {
         verticalBounce: {
