@@ -16,7 +16,6 @@ import CheckOutDetails from './components/checkOut/CheckOutDetails';
 import Shipping from './components/checkOut/Shipping';
 import Payment from './components/checkOut/Payment';
 
-
 export type ProductItem = {
   title: string;
   collection: string;
