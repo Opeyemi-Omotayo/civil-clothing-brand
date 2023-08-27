@@ -14,6 +14,7 @@ import { ToastContainer, Slide } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import CheckOutDetails from './components/checkOut/CheckOutDetails';
 import Shipping from './components/checkOut/Shipping';
+import Payment from './components/checkOut/Payment';
 
 
 export type ProductItem = {
@@ -79,6 +80,7 @@ function App() {
                <Route path='/accounts/register' element={<SignUp />}></Route>
                <Route path='/checkouts/details' element={<CheckOutDetails products={items}/>}></Route>
                <Route path='/checkouts/shipping' element={<Shipping />}></Route>
+               <Route path='/checkouts/payment' element={<Payment />}></Route>
             </Routes>
            <Footer />
       </Router>
