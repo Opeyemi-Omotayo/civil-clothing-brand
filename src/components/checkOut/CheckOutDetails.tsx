@@ -149,7 +149,7 @@ const CheckOutDetails = ({ products }: { products: ProductItem[] }) => {
             onInput={inputHandler}
           />
           <Link to={'/checkouts/shipping'} className='flex items-center justify-end pt-3'>
-            <button disabled={!formState.isValid} className="cursor-pointer w-2/6 p-3 text-white rounded-md bg-primary hover:bg-black">Continue to shipping</button>
+            <button disabled={!formState.isValid} className="cursor-pointer  disabled:cursor-not-allowed w-2/6 p-3 text-white rounded-md bg-primary hover:bg-black">Continue to shipping</button>
           </Link>
         </div>
       </div>

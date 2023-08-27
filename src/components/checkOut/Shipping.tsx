@@ -1,21 +1,27 @@
 import React from 'react';
 import Store from '../../store/Store';
+import { Link } from 'react-router-dom';
 
 const Shipping = () => {
     const { cartArray } = Store();
 
-    const total = cartArray.reduce((acc, item) => acc + item.price * item.quantity, 0);
-    const billings = { total };
+    const subTotal = cartArray.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    const shippingCost = 15;
+    const total = subTotal + shippingCost;
+    const billings = { subTotal, total };
 
 
     return (
         <div className='flex'>
             <div className='w-[60%] py-10 pb-4 mx-auto px-[25px] lg:px-[45px]'>
-                <h1>Shipping Method</h1>
-                <div className='flex items-center justify-between border bg-gray-100 shadow rounded'>
+                <h1 className='py-3 text-lg font-semibold'>Shipping Method</h1>
+                <div className='flex items-center p-4 justify-between border bg-gray-100 shadow rounded'>
                     <h1>Express Delivery</h1>
                     <h1>$15.00</h1>
                 </div>
+                <Link to={'/checkouts/payment'} className='flex items-center justify-end pt-3'>
+                    <button className="cursor-pointer w-2/6 p-3 text-white rounded-md bg-primary hover:bg-black">Continue to payment</button>
+                </Link>
             </div>
             <div className='bg-gray-200 w-[40%] pl-6'>
                 <div className='py-10 pb-4 mx-auto px-[25px] lg:px-[25px]'>
@@ -47,7 +53,7 @@ const Shipping = () => {
                             <h1 className="text-sm font-semibold">
                                 Subtotal
                             </h1>
-                            <p className="text-sm font-medium">${billings.total}.00</p>
+                            <p className="text-sm font-medium">${billings.subTotal}.00</p>
                         </div>
                         <div className="flex items-center justify-between py-1 border-b">
                             <h1 className="text-sm font-semibold">
