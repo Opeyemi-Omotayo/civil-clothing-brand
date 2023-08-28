@@ -24,17 +24,16 @@ const Payment = () => {
         reference: new Date().getTime().toString(),
         email: "civil@gmail.com",
         amount:
-          Math.round(
-            billings.subTotal + billings.total) * 80000,
+          Math.round( billings.subTotal + billings.total) * 80000,
         publicKey: process.env.REACT_APP_PAYSTACK_PUBLIC_KEY,
       };
     
-      
-    
       const initializePayment = usePaystackPayment(config);
+
       const onSuccess = () => {
         toast.success("Payment successfully completed");
       };
+
       const onClose = () => {
         toast.error("Your order was cancelled");
       };

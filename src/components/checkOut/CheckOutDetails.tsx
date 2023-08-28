@@ -104,13 +104,6 @@ const CheckOutDetails = ({ products }: { products: ProductItem[] }) => {
             errorText="Please enter your address."
             onInput={inputHandler}
           />
-          <Input
-            id="suite"
-            element="input"
-            type="text"
-            placeholder="Apartment Suite, etc. (Optional)"
-            onInput={inputHandler}
-          />
           <div className="flex items-center justify-between">
             <div className="w-[30%]">
               <Input
